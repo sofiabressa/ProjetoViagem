@@ -13,14 +13,13 @@ namespace ProjetoViagem.Repository.Mapping
             builder.HasKey(prop => prop.Id);
 
             builder.Property(prop => prop.Nome)
+                .HasConversion(prop => prop!.ToString(), prop => prop)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
             builder.Property(prop => prop.Estado)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
-
-            builder.HasOne(prop => prop.Destino);
         }
     }
 }

@@ -13,16 +13,19 @@ namespace ProjetoViagem.Domain.Entities
         {
         }
 
-        public Cidade(int id, string? nome, string? estado, Destino? detino) : base(id)
+        public Cidade(int id, string? nome, string? estado) : base(id)
         {
             Nome = nome;
             Estado = estado;
-            Destino = detino;
         }
 
         public string? Nome { get; set; }
         public string? Estado { get; set; }
 
-        public Destino? Destino { get; set; }
+        public static implicit operator string(Cidade v)
+        {
+            throw new NotImplementedException();
+        }
+        //public Voo? Voo { get; set; }
     }
 }

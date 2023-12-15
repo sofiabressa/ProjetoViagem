@@ -12,19 +12,17 @@ namespace ProjetoViagem.Repository.Mapping
 
             builder.HasKey(prop => prop.Id);
 
-            builder.Property(prop => prop.Nome)
-                .IsRequired()
-                .HasColumnType("varchar(100)");
-
-            builder.Property(prop => prop.Data_inicio);
-
-            builder.Property(prop => prop.Data_fim);
-
-            builder.Property(prop => prop.ValorViagem);
-
-            builder.Property(prop => prop.Data_venda);
+            builder.Property(prop => prop.Data_inicio)
+            .IsRequired();
 
             builder.HasOne(prop => prop.Usuario);
+
+            builder.HasOne(prop => prop.Origem);
+
+            builder.HasOne(prop => prop.Destino);
+
+            builder.HasOne(prop => prop.Voo);
+
         }
     }
 }

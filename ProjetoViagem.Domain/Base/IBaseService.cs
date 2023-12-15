@@ -5,6 +5,7 @@ namespace ProjetoViagem.Domain.Base
     public interface IBaseService<TEntity> where TEntity : IBaseEntity
     {
         public void AttachObject(object obj);
+
         TOutputModel Add<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
@@ -16,9 +17,13 @@ namespace ProjetoViagem.Domain.Base
 
         TOutputModel GetById<TOutputModel>(int id, IList<string>? includes = null) where TOutputModel : class;
 
+        IEnumerable<TOutputModel> GetAll<TOutputModel>(IList<string>? includes = null) where TOutputModel : class;
+
         TOutputModel Update<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
             where TOutputModel : class;
+
+
     }
 }
