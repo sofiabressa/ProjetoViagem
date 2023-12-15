@@ -13,8 +13,7 @@ namespace ProjetoViagem.Repository.Context
         }
 
         public DbSet<Cidade>? Cidade { get; set; }
-        public DbSet<Destino>? Destino { get; set; }
-        public DbSet<Empresa>? Empresa { get; set; }
+        public DbSet<Voo>? Voo { get; set; }
         public DbSet<Usuario>? Usuario { get; set; }
         public DbSet<Viagem>? Viagem { get; set; }
 
@@ -23,8 +22,7 @@ namespace ProjetoViagem.Repository.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Cidade> (new CidadeMap().Configure);
-            modelBuilder.Entity<Destino>(new DestinoMap().Configure);
-            modelBuilder.Entity<Empresa>(new EmpresaMap().Configure);
+            modelBuilder.Entity<Voo>(new VooMap().Configure);
             modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
             modelBuilder.Entity<Viagem>(new ViagemMap().Configure);
         }

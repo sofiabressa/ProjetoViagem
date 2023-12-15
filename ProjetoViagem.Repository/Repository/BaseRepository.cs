@@ -25,14 +25,14 @@ namespace ProjetoViagem.Repository.Repository
 
         public void Insert(TEntity obj)
         {
-            _mySqlContext.Entry(obj).State = EntityState.Added;
+            //_mySqlContext.Entry(obj).State = EntityState.Added;
             _mySqlContext.Set<TEntity>().Add(obj);
             _mySqlContext.SaveChanges();
         }
 
         public void Update(TEntity obj)
         {
-            _mySqlContext.Entry(obj).State = EntityState.Modified;
+            //_mySqlContext.Entry(obj).State = EntityState.Modified;
             _mySqlContext.SaveChanges();
         }
 
@@ -55,7 +55,8 @@ namespace ProjetoViagem.Repository.Repository
             return dbContext.ToList();
         }
 
-        //public TEntity Select(object id) => _mySqlContext.Set<TEntity>().Find(id)!;
+        public TEntity Select(object id) => _mySqlContext.Set<TEntity>().Find(id)!;
+
         public TEntity Select(object id, IList<string>? includes = null)
         {
             var dbContext = _mySqlContext.Set<TEntity>().AsQueryable();
